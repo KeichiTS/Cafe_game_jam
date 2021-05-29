@@ -4,6 +4,10 @@ var velocity = Vector2.ZERO
 var push_factor = 5
 var grow = 1
 
+
+func _ready():
+	$AudioStreamPlayer.play()
+
 func _process(delta):
 	scale = Vector2(grow,grow)
 
