@@ -5,11 +5,11 @@ var push_factor = 5
 var grow = 1
 
 
-func _ready():
-	$AudioStreamPlayer.play()
-
+onready var animationPlayer = $AnimationPlayer
 func _process(delta):
 	scale = Vector2(grow,grow)
+	if grow >= 8.5:
+		get_tree().change_scene("res://Cutscenes/End_cutscene.tscn")
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
@@ -18,6 +18,8 @@ func _physics_process(delta):
 	input_vector = input_vector.normalized()
 		
 	if input_vector != Vector2.ZERO:
+		animation_scheme(input_vector)
+		
 		velocity += input_vector 
 		velocity = velocity * delta * 50 
 	else:
@@ -30,3 +32,13 @@ func _physics_process(delta):
 		if collision.collider.is_in_group("bodies"):
 			collision.collider.apply_central_impulse(-collision.normal * velocity.length() * push_factor)
 	
+func animation_scheme(input_vector):
+	if input_vector.x > 0:
+		animationPlayer.play("Right")
+	elif input_vector.x <0: 
+		animationPlayer.play("Left")
+	elif input_vector.x == 0:
+		if input_vector.y > 0:
+			animationPlayer.play("Front")
+		elif input_vector.y <0:
+			animationPlayer.play("Back")
