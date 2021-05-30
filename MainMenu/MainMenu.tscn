@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://MainMenu/GOUDYSTO.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://MainMenu/Art.png" type="Texture" id=2]
+[ext_resource path="res://MainMenu.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 1 )
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 360, 180 )
+texture = ExtResource( 2 )
+
+[node name="Start" type="Button" parent="."]
+margin_left = 265.229
+margin_top = 210.484
+margin_right = 511.229
+margin_bottom = 249.484
+rect_rotation = -9.27407
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.184314, 0.470588, 0.164706, 1 )
+text = "Queimar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 355.367
+margin_top = 248.674
+margin_right = 516.367
+margin_bottom = 287.674
+rect_rotation = 11.4564
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.184314, 0.470588, 0.164706, 1 )
+text = "Sair"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
