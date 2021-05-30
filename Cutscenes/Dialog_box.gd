@@ -10,6 +10,7 @@ onready var dialog = [
 	"Sou eu, bola de fogo!"
 ]
 
+###############
 
 var dialog_index = 0
 var finished = false
