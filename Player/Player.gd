@@ -6,6 +6,9 @@ var grow = 1
 
 
 onready var animationPlayer = $AnimationPlayer
+
+func _ready():
+	$AudioStreamPlayer.play()
 func _process(delta):
 	scale = Vector2(grow,grow)
 	if grow >= 8.5:
