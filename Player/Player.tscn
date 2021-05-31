@@ -6,8 +6,8 @@
 [ext_resource path="res://Player/back.png" type="Texture" id=4]
 [ext_resource path="res://Player/front.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.625, 32.8993 )
+[sub_resource type="CircleShape2D" id=6]
+radius = 27.6964
 
 [sub_resource type="Animation" id=2]
 resource_name = "Back"
@@ -230,7 +230,7 @@ vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
